@@ -3,6 +3,8 @@ import pickle
 import numpy as np
 
 app = Flask(__name__)
+app.config['TEMPLATES_AUTO_RELOAD'] = True
+
 
 
 with open("model.pkl", "rb") as f:
