@@ -28,7 +28,7 @@ def predict():
     prediction = max(0, min(100, prediction))
 
     return render_template('index.html',
-                           prediction_text=f"Predicted Score: {prediction:.2f} / 100")
+                           prediction_text=f"Predicted Score: {prediction:.2f} ")
 
 if __name__ == "__main__":
     app.run(debug=True)

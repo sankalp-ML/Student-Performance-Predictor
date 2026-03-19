@@ -1,28 +1,112 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Student Performance Predictor</title>
+<title>Student Predictor</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
-body{height:100vh;background:linear-gradient(135deg,#1d2b64,#f8cdda);display:flex;justify-content:center;align-items:center}
-.card{backdrop-filter:blur(15px);background:rgba(255,255,255,0.1);padding:40px;border-radius:20px;box-shadow:0 8px 32px rgba(0,0,0,0.3);text-align:center;color:white;width:320px;animation:fadeIn 1s}
-input{width:100%;padding:12px;margin:10px 0;border-radius:10px;border:none;outline:none}
-button{width:100%;padding:12px;margin-top:15px;border:none;border-radius:10px;background:#ff7eb3;color:white;font-weight:bold;cursor:pointer;transition:.3s}
-button:hover{transform:scale(1.05);background:#ff4e9b}
-h3{margin-top:20px;color:#00ffcc}
-@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+height:100vh;
+background: linear-gradient(-45deg, #1d2b64, #f8cdda, #00c6ff, #0072ff);
+background-size: 400% 400%;
+animation: gradientBG 10s ease infinite;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+/* animated background */
+@keyframes gradientBG {
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+.card{
+backdrop-filter: blur(20px);
+background: rgba(255,255,255,0.1);
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 40px rgba(0,0,0,0.4);
+text-align:center;
+color:white;
+width:320px;
+animation: fadeIn 1s ease-in-out;
+}
+
+h2{
+margin-bottom:20px;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:10px;
+border:none;
+outline:none;
+}
+
+button{
+width:100%;
+padding:12px;
+margin-top:15px;
+border:none;
+border-radius:10px;
+background:#ff4e9b;
+color:white;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+background:#ff007f;
+box-shadow:0 0 15px #ff007f;
+}
+
+/* glowing result */
+.result{
+margin-top:20px;
+font-size:24px;
+font-weight:bold;
+color:#00ffcc;
+text-shadow:0 0 10px #00ffcc, 0 0 20px #00ffcc;
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(20px)}
+to{opacity:1; transform:translateY(0)}
+}
 </style>
+
 </head>
+
 <body>
+
 <div class="card">
 <h2>🚀 Student Predictor</h2>
+
 <form action="/predict" method="post">
 <input type="number" name="hours" placeholder="Study Hours" required>
 <input type="number" name="attendance" placeholder="Attendance %" required>
 <input type="number" name="previous_marks" placeholder="Previous Marks" required>
-<button type="submit">Predict</button>
+
+<button type="submit">Predict ⚡</button>
 </form>
-<h3>{{ prediction_text }}</h3>
+
+<div class="result">
+{{ prediction_text }}
 </div>
+
+</div>
+
 </body>
 </html>
