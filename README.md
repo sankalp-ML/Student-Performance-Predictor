@@ -33,12 +33,12 @@ Tech Stack
 
 Student-Performance-Predictor/
 │
-├── app.py              # Flask application
-├── model1.pkl          # Trained ML model
-├── templates/          # HTML files
+├── app.py              
+├── model1.pkl          
+├── templates/          
 │   └── index.html
-├── static/             # CSS / JS files
-├── dataset.csv         # Dataset used for training
+├── static/             
+├── dataset.csv         
 └── README.md
 
 
@@ -94,4 +94,4 @@ Contribute
 
 Feel free to fork this repository and contribute!
 
-This project is open-source and available under the MIT License.
+
