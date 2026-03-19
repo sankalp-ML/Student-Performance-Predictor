@@ -7,3 +7,7 @@ This project predicts student performance based on input features using a Machin
 - Trained the ML model on the dataset
 - Saved the trained model as `model1.pkl` using `pickle`
 - Tested the model on sample inputs
+
+
+## 19/3/26
+- Created flask for my model 
