@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Performance Predictor</title>
+</head>
+<body>
+
+    <h2>Enter Student Details</h2>
+
+    <form action="/predict" method="post">
+        <label>Study Hours:</label><br>
+        <input type="number" name="hours"><br><br>
+
+        <label>Attendance (%):</label><br>
+        <input type="number" name="attendance"><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    <h3>{{ prediction_text }}</h3>
+
+</body>
+</html>
