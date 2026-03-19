@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Student Performance Predictor</title>
+<title>Student Predictor Predictor</title>
 
 <style>
 *{
@@ -14,34 +14,29 @@ font-family:Poppins,sans-serif;
 body{
 height:100vh;
 background: linear-gradient(-45deg, #1d2b64, #f8cdda, #00c6ff, #0072ff);
-background-size: 400% 400%;
-animation: gradientBG 10s ease infinite;
+background-size:400% 400%;
+animation:gradientBG 10s ease infinite;
 display:flex;
 justify-content:center;
 align-items:center;
 }
 
-/* animated background */
-@keyframes gradientBG {
+@keyframes gradientBG{
 0%{background-position:0% 50%}
 50%{background-position:100% 50%}
 100%{background-position:0% 50%}
 }
 
 .card{
-backdrop-filter: blur(20px);
-background: rgba(255,255,255,0.1);
+backdrop-filter:blur(20px);
+background:rgba(255,255,255,0.1);
 padding:40px;
 border-radius:20px;
 box-shadow:0 10px 40px rgba(0,0,0,0.4);
 text-align:center;
 color:white;
 width:320px;
-animation: fadeIn 1s ease-in-out;
-}
-
-h2{
-margin-bottom:20px;
+animation:fadeIn 1s;
 }
 
 input{
@@ -50,13 +45,12 @@ padding:12px;
 margin:10px 0;
 border-radius:10px;
 border:none;
-outline:none;
 }
 
 button{
 width:100%;
 padding:12px;
-margin-top:15px;
+margin-top:10px;
 border:none;
 border-radius:10px;
 background:#ff4e9b;
@@ -72,18 +66,41 @@ background:#ff007f;
 box-shadow:0 0 15px #ff007f;
 }
 
-/* glowing result */
 .result{
 margin-top:20px;
-font-size:24px;
+font-size:26px;
 font-weight:bold;
 color:#00ffcc;
-text-shadow:0 0 10px #00ffcc, 0 0 20px #00ffcc;
+text-shadow:0 0 10px #00ffcc;
+}
+
+/* 🔥 Progress bar */
+.bar-container{
+width:100%;
+height:12px;
+background:rgba(255,255,255,0.2);
+border-radius:10px;
+margin-top:15px;
+overflow:hidden;
+}
+
+.bar{
+height:100%;
+background:#00ffcc;
+width:0%;
+transition:width 1s ease-in-out;
+}
+
+/* Grade */
+.grade{
+margin-top:10px;
+font-size:20px;
+font-weight:bold;
 }
 
 @keyframes fadeIn{
-from{opacity:0; transform:translateY(20px)}
-to{opacity:1; transform:translateY(0)}
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:translateY(0)}
 }
 </style>
 
@@ -102,9 +119,15 @@ to{opacity:1; transform:translateY(0)}
 <button type="submit">Predict </button>
 </form>
 
-<div class="result">
-{{ prediction_text }}
+{% if prediction_text %}
+<div class="result">{{ prediction_text }}</div>
+
+<div class="bar-container">
+<div class="bar" style="width: {{ prediction_text }}%"></div>
 </div>
+
+<div class="grade">{{ grade }}</div>
+{% endif %}
 
 </div>
 
